@@ -1,0 +1,3 @@
+runs: 10
+iters: 500
+swap: 2

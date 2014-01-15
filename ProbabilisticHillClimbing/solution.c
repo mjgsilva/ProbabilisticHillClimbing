@@ -113,17 +113,7 @@ int calSubFitness(int sol[], int **matrix, int firstPos ,int nElements, int M)
 
 int getEdgeValue(int **matrix, int M, int x, int y)
 {
-    int aux;
-    
-    if(x > y)
-    {
-        aux = x;
-        x = y;
-        y = aux;
-    }
-
     return matrix[x][y];
-    
 }
 
 /*

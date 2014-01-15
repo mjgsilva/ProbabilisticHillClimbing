@@ -50,7 +50,7 @@ int ** readFile(char *filename, int *M, int *G)
     char buffer[150];
     int edges;
     int **matrix;
-    int i,j,k;
+    int i,j,k,aux;
     
     f = fopen(filename, "r");
     
@@ -60,21 +60,24 @@ int ** readFile(char *filename, int *M, int *G)
     
     edges = (*M * (*M - 1)/2);
     
-    if(!(matrix = (int **)malloc((*M-1) * sizeof(int *))))
+    if(!(matrix = (int **)malloc(*M * sizeof(int *))))
         return NULL;
     
     
-    for(i=0; i < (*M-1); i++)
+    for(i=0; i < *M; i++)
     {
-        if(!(matrix[i] = (int *)calloc((*M-1),sizeof(int))))
+        if(!(matrix[i] = (int *)calloc(*M,sizeof(int))))
             return NULL;
+        printf("i: %d\n",i);
     }
     
     
     for(k = 0; k < edges; k++)
     {
         fscanf(f, " %d %d", &i, &j);
-        fscanf(f, " %d", &matrix[i][j]);
+        fscanf(f, " %d", &aux);
+        matrix[i][j] = aux;
+        matrix[j][i] = aux;
     }
         
     fclose(f);

@@ -41,4 +41,3 @@ Final fitness = 515 + 480
 	iterations: 500
 	swap: 2 -> Exchange two elements always avoiding exchanges between elements in the same group.
 	prob: 0.01 -> There is a probability of 1% of choosing a solution with lower value. If you want to use a standart Hill Climbing Algorithm then just define this using 0.
-
